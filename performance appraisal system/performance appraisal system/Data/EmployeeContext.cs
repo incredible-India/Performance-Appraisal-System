@@ -12,8 +12,7 @@ namespace performance_appraisal_system.Data
 
 
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Manager> Manager { get; set; }
-        public DbSet<HR> HR { get; set; }
+
 
     }
 }

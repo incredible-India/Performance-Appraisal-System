@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using performance_appraisal_system.Data;
 using performance_appraisal_system.Services;
+using performance_appraisal_system.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,9 +14,11 @@ builder.Services.AddControllersWithViews();
 string? con = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<EmployeeContext>(builder => builder.UseSqlServer(con));
 
-//Adding the servicw for the basic app settings which provide the defaule app name mentioned in appsetting.json
+//Adding the service for the basic app settings which provide the defaule app name mentioned in appsetting.json
 builder.Services.AddSingleton<_basicAppInfo,basicAppInfo>();
 
+//adding service for the validation login
+builder.Services.AddTransient<_LoginValidator,loginValidator>();
 
 //for the development ENV, TO AVOID the project reopning to see changes...
 
@@ -43,6 +46,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}");
 
 app.Run();

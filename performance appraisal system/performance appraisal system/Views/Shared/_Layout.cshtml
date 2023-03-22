@@ -8,26 +8,23 @@
     <title>@ViewData["Title"] - performance_appraisal_system</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/performance_appraisal_system.styles.css" asp-append-version="true" />
-
+   
+    @await RenderSectionAsync("links",required:false)
 </head>
 <body>
 
     @*Navbar from partial view*@
     <header>
-       <partial name="_navbar" />
+      @* <partial name="_navbar" />*@
     </header>
 
 
-    <div class="container">
-        <main role="main" class="pb-3">
             @RenderBody()
-        </main>
-    </div>
+
 
     @*Footer from partial view*@
     <footer class="border-top footer text-muted">
-        <partial name="_footer" />
+      @*  <partial name="_footer" />*@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
