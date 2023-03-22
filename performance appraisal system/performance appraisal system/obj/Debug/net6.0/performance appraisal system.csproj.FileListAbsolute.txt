@@ -1,0 +1,31 @@
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\appsettings.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.staticwebassets.runtime.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.exe
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.deps.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.runtimeconfig.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.dll
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\bin\Debug\net6.0\performance appraisal system.pdb
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.csproj.AssemblyReference.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.AssemblyInfoInputs.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.AssemblyInfo.cs
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.csproj.CoreCompileInputs.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.RazorAssemblyInfo.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.RazorAssemblyInfo.cs
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets\msbuild.performance appraisal system.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets\msbuild.build.performance appraisal system.props
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.performance appraisal system.props
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.performance appraisal system.props
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\scopedcss\bundle\performance appraisal system.styles.css
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\scopedcss\projectbundle\performance appraisal system.bundle.scp.css
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.dll
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\refint\performance appraisal system.dll
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.pdb
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\performance appraisal system.genruntimeconfig.cache
+C:\Users\himanshu.y.sharma\Desktop\performance appraisal system\performance appraisal system\performance appraisal system\obj\Debug\net6.0\ref\performance appraisal system.dll
