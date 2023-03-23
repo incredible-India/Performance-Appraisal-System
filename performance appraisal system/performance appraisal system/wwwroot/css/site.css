@@ -13,6 +13,13 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(white,orange));
+    border-radius: 20px;
 }

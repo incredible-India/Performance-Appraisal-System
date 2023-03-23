@@ -10,5 +10,6 @@ namespace performance_appraisal_system.Models
         [Required(ErrorMessage ="Please Enter The Password")]
         [DataType(DataType.Password)]
         public string password { get; set; }
+        public bool KeepLoggedIn { get; set; }
     }
 }

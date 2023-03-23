@@ -32,18 +32,19 @@
 
 <div class="container mx-auto">
 
-    @{
-        if(ViewBag.ErrorName != null)
-        {
-            <div class="alert alert-danger">@ViewBag.ErrorName</div>
-        }
-    }
 
 
 
 
 <div class="wrapper fadeInDown">
   <div id="formContent">
+
+            @{
+                if (ViewBag.ErrorName != null)
+                {
+                    <div class="text-danger">@ViewBag.ErrorName</div>
+                }
+            }
 
             <form asp-action="Login" asp-controller="Home" method="post">
               <input  asp-for="email" id="login" class="fadeIn second"  placeholder="User Name" required>

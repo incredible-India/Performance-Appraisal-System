@@ -18,23 +18,30 @@ namespace performance_appraisal_system.Validators
 
         //this method will verify the id and the password
 
-        public dynamic Validate(login logDetail)
+        public Employee Validate(login logDetail)
         {
 
-
-            int IsAnyData = _employeeContext.Employees.Count();
-
-            if (IsAnyData == 0)
-                return 0;
-               
 
             var status = _employeeContext.Employees.Where(m => m.email == logDetail.email && m.password == logDetail.password).FirstOrDefault();
 
 
-            return status;
+           
+           return status;
+            
+
            
         }
 
-      
+        //checking the number of recored in the employee table
+
+        public int CheckNoOfData()
+        {
+            int data = _employeeContext.Employees.Count();
+
+            return data;
+        }
+
+
+
     }
 }
