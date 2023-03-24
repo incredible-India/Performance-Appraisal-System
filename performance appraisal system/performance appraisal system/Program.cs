@@ -62,11 +62,7 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("Designation", "Manager");
     });
 
-    //setting privacy for the Employee
-    options.AddPolicy("BlongsToEmployee", policy =>
-    {
-        policy.RequireClaim("Designation", "Employee");
-    });
+   
 });
 var app = builder.Build();
 

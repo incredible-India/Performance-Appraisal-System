@@ -1,6 +1,10 @@
-﻿<nav class="navbar navbar-expand-lg navbar-light " style="background-color:silver">
-    <a class="navbar-brand mx-2" href="#">
-        <img src="~/images/logo.png" />
+﻿
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<nav class="navbar navbar-expand-lg navbar-light " >
+    <a class="navbar-brand mx-2" asp-action="DashBoard">
+        <img src="~/images/logo_dark.png" />
 
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,22 +20,37 @@
             </li>
            
             <li class="nav-item dropdown mt-2">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle active"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     @User.Identity.Name
                 </a>
                 <ul class="dropdown-menu">
                   
                 
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Change Password</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li class="nav-item">
                         <a class="dropdown-item text-danger" asp-action="Logout" asp-controller="Home">Logout</a>
                     </li>
+                  
                 </ul>
+             
             </li>
         </ul>
-      
+       
+        <ul class="navbar-nav ms-auto mx-3 mt-2">
+
+            <li class="nav-item">
+                <p> <b>Welcome, @User.Identity.Name <i class="fas fa-user"></i> <br />  @User.Claims.ToList()[2].Value </b>  </p>
+              
+    </li>
+          
+               
+  
+
+                
+
+       </ul>
     </div>
 </nav>

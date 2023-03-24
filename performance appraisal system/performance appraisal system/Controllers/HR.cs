@@ -7,7 +7,14 @@ namespace performance_appraisal_system.Controllers
     [Authorize(Policy = "BlongsToHR")]
     public class HR : Controller
     {
+
+        //for Simple DashBoard
         public IActionResult DashBoard()
+        {
+            return View();
+        }
+
+        public IActionResult AddEmployees()
         {
             return View();
         }

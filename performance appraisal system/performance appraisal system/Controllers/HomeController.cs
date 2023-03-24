@@ -38,16 +38,12 @@ namespace performance_appraisal_system.Controllers
             //cheking if user is aleardy logged in or not
             if (claimUser.Identity.IsAuthenticated)
             {
-
-
                 //this will check the designation of user and based on that we will continue ..
                 if (User.Claims.ToList()[2].Value == "HR") return RedirectToAction("Dashboard", "HR");
-                else if (User.Claims.ToList()[2].Value == "Manager") return RedirectToAction("Dashboard", "Employee");
-                else if(User.Claims.ToList()[2].Value == "Employee") return RedirectToAction("Dashboard", "Manager");
-                else return RedirectToAction("NormalError", "Error", new {  message="Something WentWrong"});
-
-
-
+                if (User.Claims.ToList()[2].Value == "Manager") return RedirectToAction("Dashboard", "Employee");
+                if(User.Claims.ToList()[2].Value == "Employee") return RedirectToAction("Dashboard", "Manager");
+                 /*return RedirectToAction("NormalError", "Error", new {  message="Something WentWrong"});
+*/
 
             }
               

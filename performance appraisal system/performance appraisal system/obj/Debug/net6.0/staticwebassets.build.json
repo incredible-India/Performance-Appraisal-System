@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uRkYr0RxQLPADNNtMIANYNrvKakLfXLuoq8K2WzhtDM=",
+  "Hash": "fYFfpS3ZlV8h+t8PR8KmQTvGnmppC4LtZgMKcp1hJc4=",
   "Source": "performance appraisal system",
   "BasePath": "_content/performance appraisal system",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\logo_dark.png",
+      "SourceId": "performance appraisal system",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\",
+      "BasePath": "_content/performance appraisal system",
+      "RelativePath": "Images/logo_dark.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\logo_dark.png"
     },
     {
       "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\xan-griffin-qxnkzejb180-unsplash.jpg",
