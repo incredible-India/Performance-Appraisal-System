@@ -1,19 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using performance_appraisal_system.Data;
 using performance_appraisal_system.Models;
 using performance_appraisal_system.Services;
+using System.Security.Claims;
 
 namespace performance_appraisal_system.Validators
 {
 
-    public class loginValidator : _LoginValidator
+    public class loginValidator :Controller, _LoginValidator
     {
 
         private readonly EmployeeContext _employeeContext;
 
-        public loginValidator(EmployeeContext employeeContext)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+ 
+
+        public loginValidator(EmployeeContext employeeContext, IHttpContextAccessor httpContextAccessor)
         {
             _employeeContext = employeeContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         //this method will verify the id and the password
@@ -41,6 +50,37 @@ namespace performance_appraisal_system.Validators
             return data;
         }
 
+        public  void AuthProcess(Employee emp,login logDetails)
+        {
+            List<Claim> claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name,emp.Name),
+                new Claim(ClaimTypes.Email,emp.email),
+                new Claim("Designation",emp.Designation),
+                
+            };
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
+                          CookieAuthenticationDefaults.AuthenticationScheme);
+
+            ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+
+            AuthenticationProperties properties = new AuthenticationProperties()
+            {
+
+                AllowRefresh = true,
+              
+            };
+
+
+            _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                       new ClaimsPrincipal(claimsIdentity), properties);
+
+
+        }
+
+
+   
 
 
     }

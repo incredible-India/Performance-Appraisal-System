@@ -29,6 +29,7 @@ builder.Services.AddAuthentication(
     .AddCookie(option => {
         option.LoginPath = "/Home/Login";
         option.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+        option.AccessDeniedPath = "/Error/AccessDenied";
 
     });
 
@@ -38,9 +39,35 @@ builder.Services.AddAuthentication(
 
 #if DEBUG
 
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();  
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif
 
+
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+
+//ading the policies it helps to access the page only who has valid Role
+
+builder.Services.AddAuthorization(options =>
+{
+    //setting policy for the HR
+    options.AddPolicy("BlongsToHR", policy =>
+    {
+        policy.RequireClaim("Designation", "HR");
+    });
+
+    //setting privacy for the Manager
+    options.AddPolicy("BlongsToManager", policy =>
+    {
+        policy.RequireClaim("Designation", "Manager");
+    });
+
+    //setting privacy for the Employee
+    options.AddPolicy("BlongsToEmployee", policy =>
+    {
+        policy.RequireClaim("Designation", "Employee");
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,7 +78,11 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//for the session
+
+
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -59,7 +90,6 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
-//for the session
 
 
 app.MapControllerRoute(

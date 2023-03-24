@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PTVP75rxUB1PFbuPuqX+Fuz386LRCFpV4Hk+spTcUqE=",
+  "Hash": "uRkYr0RxQLPADNNtMIANYNrvKakLfXLuoq8K2WzhtDM=",
   "Source": "performance appraisal system",
   "BasePath": "_content/performance appraisal system",
   "Mode": "Default",
@@ -102,12 +102,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\fractal.png",
+      "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\Access Denied.jpg",
       "SourceId": "performance appraisal system",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\",
       "BasePath": "_content/performance appraisal system",
-      "RelativePath": "Images/fractal.png",
+      "RelativePath": "Images/Access Denied.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,24 +116,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\fractal.png"
-    },
-    {
-      "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\image_network.jpg",
-      "SourceId": "performance appraisal system",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\",
-      "BasePath": "_content/performance appraisal system",
-      "RelativePath": "Images/image_network.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\image_network.jpg"
+      "OriginalItemSpec": "wwwroot\\Images\\Access Denied.jpg"
     },
     {
       "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\logo.png",
@@ -151,23 +134,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\logo.png"
-    },
-    {
-      "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\number-of-dealerships-for-the-web_2.png",
-      "SourceId": "performance appraisal system",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\",
-      "BasePath": "_content/performance appraisal system",
-      "RelativePath": "Images/number-of-dealerships-for-the-web_2.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Images\\number-of-dealerships-for-the-web_2.png"
     },
     {
       "Identity": "C:\\Users\\himanshu.y.sharma\\Desktop\\performance appraisal system\\performance appraisal system\\performance appraisal system\\wwwroot\\Images\\xan-griffin-qxnkzejb180-unsplash.jpg",
