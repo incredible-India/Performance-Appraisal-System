@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using performance_appraisal_system.Data;
+using performance_appraisal_system.Repository;
 using performance_appraisal_system.Services;
 using performance_appraisal_system.Validators;
 
@@ -21,6 +22,10 @@ builder.Services.AddSingleton<_basicAppInfo,basicAppInfo>();
 
 //adding service for the validation login
 builder.Services.AddTransient<_LoginValidator,loginValidator>();
+
+//adding Services for the Employee(eg : Add employee,Retrive employee details)
+
+builder.Services.AddScoped<IEmployeeService,EmployeeService>();
 
 //adding cookies authentication for the members and setting the defuault route if authentications fails
 

@@ -10,6 +10,8 @@ namespace performance_appraisal_system.Services
         public int CheckNoOfData();
         //this method will set the cookies and claims the identity
         public  void AuthProcess(Employee emp, login logDetails);
+
+
      
 
 
