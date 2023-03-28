@@ -32,7 +32,7 @@ namespace performance_appraisal_system.Controllers
         public IActionResult Login()
         {
 
-
+            
 
             ClaimsPrincipal claimUser = HttpContext.User;
             //cheking if user is aleardy logged in or not
@@ -40,8 +40,8 @@ namespace performance_appraisal_system.Controllers
             {
                 //this will check the designation of user and based on that we will continue ..
                 if (User.Claims.ToList()[2].Value == "HR") return RedirectToAction("Dashboard", "HR");
-                if (User.Claims.ToList()[2].Value == "Manager") return RedirectToAction("Dashboard", "Employee");
-                if(User.Claims.ToList()[2].Value == "Employee") return RedirectToAction("Dashboard", "Manager");
+                if (User.Claims.ToList()[2].Value == "Manager") return RedirectToAction("DashBoard", "Manager");
+                if(User.Claims.ToList()[2].Value == "Employee") return RedirectToAction("Dashboard", "Employee");
                  /*return RedirectToAction("NormalError", "Error", new {  message="Something WentWrong"});
 */
 

@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using performance_appraisal_system.Data;
+using performance_appraisal_system.Migrations;
 using performance_appraisal_system.Repository;
 using performance_appraisal_system.Services;
 using performance_appraisal_system.Validators;
@@ -15,8 +17,9 @@ builder.Services.AddControllersWithViews();
 
 //connecting to the databse 
 string? con = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<EmployeeContext>(builder => builder.UseSqlServer(con));
-
+builder.Services.AddDbContext<EmployeeContext>(builder => { builder.UseSqlServer(con).EnableSensitiveDataLogging(); ; });
+  
+   
 //Adding the service for the basic app settings which provide the defaule app name mentioned in appsetting.json
 builder.Services.AddSingleton<_basicAppInfo,basicAppInfo>();
 
@@ -26,6 +29,11 @@ builder.Services.AddTransient<_LoginValidator,loginValidator>();
 //adding Services for the Employee(eg : Add employee,Retrive employee details)
 
 builder.Services.AddScoped<IEmployeeService,EmployeeService>();
+
+
+//adding services for the competiencies
+
+builder.Services.AddScoped<ICompitencies, competenciesServices>();
 
 //adding cookies authentication for the members and setting the defuault route if authentications fails
 

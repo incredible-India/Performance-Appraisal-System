@@ -1,0 +1,16 @@
+﻿
+@{
+
+
+      
+                <tr>
+                    <th scope="row">@Model.EID</th>
+                    <td>@Model.Name</td>
+                    <td><a href="mailto:@Model.email">@Model.email</a></td>
+                    <td>@Model.Designation</td>
+                    <td>@Model.MID </td>
+        <td> <a class="text-secondary" asp-action="EditEmployee" asp-controller="HR" asp-route-empID="@Model.EID">Edit</a>| <a class="text-danger" href="@Model.EID">Delete</a></td>
+                </tr>
+             
+
+}

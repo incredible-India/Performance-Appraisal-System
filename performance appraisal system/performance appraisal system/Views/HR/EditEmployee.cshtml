@@ -1,0 +1,87 @@
+﻿@if (User.Identity.IsAuthenticated)
+{
+@model Employee;
+
+    @using performance_appraisal_system.Enumdata;
+<partial name="_navbarCommon" />
+
+
+
+{
+    if(ViewBag.Edited != null)
+    {
+        <div class="alert alert-success">@ViewBag.Edited </div>
+    }
+    if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error </div>
+    }
+}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <a class="btn btn-lg btn-outline-secondary mt-4 mx-3" asp-action="AddEmployees" asp-controller="HR">Add Employees</a>
+            </div>
+
+            <div class="col-sm-8">
+
+                <form asp-action="EditEmployee" asp-controller="HR"  method="post">
+                    @Html.HiddenFor(model => model.EID)
+                    <div class="form-row">
+
+                        <div class="form-group col-md-6">
+                            <label asp-for="Name" ></label>
+                            <input asp-for="Name"  class="form-control" placeholder="Name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label asp-for="email"></label>
+                            <input asp-for="email" class="form-control" placeholder="Email">
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="Phone"></label>
+                            <input asp-for="Phone" class="form-control" placeholder="Phone Number" type="number">
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="Designation"></label>
+                            <select asp-for="Designation" asp-items="Html.GetEnumSelectList<Designation>()" class="form-control">
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label asp-for="password"></label>
+                            <input asp-for="password" class="form-control" placeholder="Password" type="password">
+                            <span asp-validation-for="password" class="text-danger"> </span>
+                        </div>
+                        <div class="form-group col-md-4">
+
+                            <label asp-for="MID"></label>
+                            @Html.DropDownListFor(m => m.MID, ViewBag.selectList as SelectList, new { @class = "form-control" })
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-4" value="submit">Edit Employee</button>
+
+                </form>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+}
+else
+{
+    <h1>You Are Not Authenticated</h1>
+}

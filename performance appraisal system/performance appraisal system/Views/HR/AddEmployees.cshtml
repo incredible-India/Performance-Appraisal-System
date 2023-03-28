@@ -1,5 +1,5 @@
 ﻿@model Employee
-@using performance_appraisal_system.Enum;
+@using performance_appraisal_system.Enumdata;
 @{
     ViewData["Title"] = "AddEmployees";
 }
@@ -51,16 +51,23 @@
                 <span asp-validation-for="password" class="text-danger"> </span>
             </div>
             <div class="form-group col-md-4">
-         
+             
                 <label asp-for="MID"></label>
-                <input asp-for="MID" class="form-control" placeholder="Manager ID" >
-                <span asp-validation-for="MID" class="text-danger"></span>
+                @Html.DropDownListFor(m => m.MID, ViewBag.selectList as SelectList, new { @class = "form-control" })
+  
+               
             </div>
         </div>
         <div class="form-group">
            
         </div>
         <button type="submit" class="btn btn-primary mt-4">Add Employee</button>
+       
     </form>
+
+   
 </div>
 
+<div class="container mt-4">
+    <a class="text-secondary" href="/HR/Dashboard">See Employees List</a>
+</div>

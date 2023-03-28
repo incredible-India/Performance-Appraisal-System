@@ -1,0 +1,70 @@
+﻿<partial name="_navbarCommon" />
+
+
+<h4 class=" mt-3 container mx-2 text-center text-decoration-underline">Add Appraisel</h4>
+
+@model Appraiselform
+
+<div class="container">
+
+    <form>
+
+         <div class="row">
+            <div class="col-sm-4">
+                <div class="mt-3">
+                    <label asp-for="EmployeeID"></label>
+                    @Html.DropDownListFor(m => m.EmployeeID, ViewBag.selectList as SelectList, new { @class = "form-control" })
+
+
+                </div>
+
+            </div>
+            </div>
+         
+
+@*        <div class="mt-3">
+            <label asp-for="EmployeeID"></label>
+            @Html.DropDownListFor(m => m.EmployeeID, ViewBag.selectList as SelectList, new { @class = "form-control" })
+ 
+  
+        </div>  *@ 
+        
+        <div class="mt-3">
+
+            <label asp-for="competence"></label>
+            <select asp-for="competence" asp-items="@ViewBag.compitency" class="form-control" multiple></select>
+        </div>
+        
+        <div class="mt-3">
+
+            <label asp-for="objective"></label>
+            <textarea asp-for="objective" class="form-control"></textarea>
+        </div>  
+        
+       
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="mt-3">
+
+                    <label asp-for="StartDate"></label>
+                    <input asp-for="StartDate" class="form-control ">
+
+                </div>
+
+            </div>
+
+            <div class="col-sm-4">
+
+                <div class="mt-3 ">
+
+                    <label asp-for="EndDate"></label>
+                    <input asp-for="EndDate" class="form-control">
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+
+</div>

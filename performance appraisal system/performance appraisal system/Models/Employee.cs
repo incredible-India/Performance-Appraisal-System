@@ -1,5 +1,5 @@
 ﻿using performance_appraisal_system.Data;
-using performance_appraisal_system.Enum;
+
 using performance_appraisal_system.Repository;
 using performance_appraisal_system.Validators;
 using System.ComponentModel;
@@ -55,9 +55,9 @@ namespace performance_appraisal_system.Models
 
       
 
-        [Required(ErrorMessage ="ManagerId is Required..")]
         [DisplayName("Manager ID")]
-        public int? MID { get; set; }
+        
+        public int MID { get; set; }
 
 
   
