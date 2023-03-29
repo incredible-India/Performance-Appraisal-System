@@ -21,12 +21,16 @@ namespace performance_appraisal_system.Controllers
 
         private readonly ICompitencies _compitencies;
 
+        //for appraisel services
+        private readonly IAppraisalfromService _appraisalfromService;
 
-        public ManagerController(IEmployeeService emp, ICompitencies compitencies)
+        //constructor
+        public ManagerController(IEmployeeService emp, ICompitencies compitencies, IAppraisalfromService appraisalfromService)
         {
 
             _emp = emp;
             _compitencies = compitencies;
+            _appraisalfromService = appraisalfromService;
         }
 
 
@@ -52,10 +56,10 @@ namespace performance_appraisal_system.Controllers
             //dropdownform Competencey
            
 
-            List<string> comp = _compitencies.GetCompetenciesName();
+            var comp = _compitencies.ListCompetencies();
 
 
-            IEnumerable <SelectListItem> selectList = comp.Select(x => new SelectListItem { Text = x, Value = x });
+            IEnumerable <SelectListItem> selectList = comp.Select(x => new SelectListItem { Text = x.CompetencyName, Value = x.ID.ToString() });
 
             ViewBag.compitency = selectList;
                           
@@ -64,6 +68,57 @@ namespace performance_appraisal_system.Controllers
             return View(apps);
         }
 
+
+
+
+        //http post method for adding appraisel
+
+        [HttpPost]
+
+        public IActionResult AddAppraisel(Appraiselform fm)
+        {
+            //getting the current user id
+            int id = _emp.CurrentUserID(User.Claims.ToList()[1].Value);
+
+            //create a dropdown in the list employee list under the manager
+            DropDownEmployeeList(id);
+
+            //dropdownform Competencey
+
+
+            var comp = _compitencies.ListCompetencies();
+
+
+            IEnumerable<SelectListItem> selectList = comp.Select(x => new SelectListItem { Text = x.CompetencyName, Value = x.ID.ToString() });
+
+            ViewBag.compitency = selectList;
+
+            //now adding the default Employee ID
+
+            fm.ManagerID = id;
+
+            //now checking the objective it is null or not
+     
+
+            if (ModelState.IsValid)
+            {
+                //now save all the information coming from the client side
+
+                _appraisalfromService.SaveDataInAppraiselDB(fm);
+
+
+                ViewBag.Success = "* Appraisal Created Successfully...";
+                ModelState.Clear();
+                return View();
+            }
+            else
+            {
+                
+                return View(fm);
+            }
+
+
+        }
 
 
         //drop down for the employee list under the the current manager login

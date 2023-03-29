@@ -7,9 +7,9 @@
 <partial name="_navbarCommon" />
 
 @{
-    if(ViewBag.success != null)
+    if (TempData["Success"] != null)
     {
-        <div class="alert alert-success">@ViewBag.success </div>
+        <div class="alert alert-success">@TempData["Success"]  </div>
     }
     if (ViewBag.error != null)
     {

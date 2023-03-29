@@ -6,8 +6,17 @@
 @model Appraiselform
 
 <div class="container">
+    @{
+        if (ViewBag.Success != null)
+        {
+            <div class="container alert alert-success">
+                @ViewBag.Success
+            </div>
+        }
+    }
 
-    <form>
+
+    <form asp-action="AddAppraisel" asp-controller="Manager" method="post">
 
          <div class="row">
             <div class="col-sm-4">
@@ -29,16 +38,19 @@
   
         </div>  *@ 
         
+        
         <div class="mt-3">
 
-            <label asp-for="competence"></label>
-            <select asp-for="competence" asp-items="@ViewBag.compitency" class="form-control" multiple></select>
+            <label asp-for="tempCompetency"></label>
+            <select asp-for="tempCompetency" asp-items="@ViewBag.compitency" class="form-control form-select-lg" multiple></select>
+            <span asp-validation-for="tempCompetency" class="text-danger"></span>
         </div>
         
         <div class="mt-3">
 
             <label asp-for="objective"></label>
             <textarea asp-for="objective" class="form-control"></textarea>
+           @* <span asp-validation-for="objective" class="text-danger"></span>*@
         </div>  
         
        
@@ -48,6 +60,7 @@
 
                     <label asp-for="StartDate"></label>
                     <input asp-for="StartDate" class="form-control ">
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
 
                 </div>
 
@@ -59,11 +72,12 @@
 
                     <label asp-for="EndDate"></label>
                     <input asp-for="EndDate" class="form-control">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
                 </div>
             </div>
         </div>
 
-
+        <input type="submit" class="btn btn-primary mt-4"  value="Submit Appraisal"/>
 
     </form>
 

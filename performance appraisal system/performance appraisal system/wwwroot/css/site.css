@@ -23,3 +23,7 @@ html {
     background-image: linear-gradient(white,orange));
     border-radius: 20px;
 }
+
+label {
+    font-weight: 600;
+}

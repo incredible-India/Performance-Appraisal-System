@@ -1,0 +1,47 @@
+﻿<partial name="_navbarCommon" />
+
+
+<div class="container mt-4" >
+
+    <div class="row">
+
+        <div class="col-sm-4 border border-top alert alert-success ">
+            <h5>Previous Appraisal</h5>
+
+
+        </div>
+
+        <div class="col-sm-4 border border-bottom alert alert-warning ">
+            <h5>Pending Appraisal</h5>
+
+
+        </div>
+
+        <div class="col-sm-4 border border-top-1 alert alert-info ">
+
+            <h5>Activity</h5>
+
+            @{
+                if(ViewBag.status != null)
+                {
+                    foreach(var item in ViewBag.status)
+                    {
+                        <p> Hey, <b>@User.Identity.Name</b>, There is new appraisal form for you. <b>created on @item.StartDate.. </b> <a class="text-info">See Details</a>   </p>
+                    }
+
+                }
+                else
+                {
+                    <h6>No Appraisal Form Exist..</h6>
+                }
+            }
+
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

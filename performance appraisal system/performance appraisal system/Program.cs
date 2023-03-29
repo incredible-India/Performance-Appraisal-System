@@ -35,6 +35,10 @@ builder.Services.AddScoped<IEmployeeService,EmployeeService>();
 
 builder.Services.AddScoped<ICompitencies, competenciesServices>();
 
+//building services for the appraisal form and the services
+
+builder.Services.AddScoped<IAppraisalfromService,AppraisalFormService>();
+
 //adding cookies authentication for the members and setting the defuault route if authentications fails
 
 builder.Services.AddAuthentication(

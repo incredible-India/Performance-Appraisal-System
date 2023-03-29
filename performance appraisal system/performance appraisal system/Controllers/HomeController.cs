@@ -41,7 +41,7 @@ namespace performance_appraisal_system.Controllers
                 //this will check the designation of user and based on that we will continue ..
                 if (User.Claims.ToList()[2].Value == "HR") return RedirectToAction("Dashboard", "HR");
                 if (User.Claims.ToList()[2].Value == "Manager") return RedirectToAction("DashBoard", "Manager");
-                if(User.Claims.ToList()[2].Value == "Employee") return RedirectToAction("Dashboard", "Employee");
+                return RedirectToAction("DashBoard", "Employee");
                  /*return RedirectToAction("NormalError", "Error", new {  message="Something WentWrong"});
 */
 
@@ -83,8 +83,9 @@ namespace performance_appraisal_system.Controllers
                         if (isCorrect.Designation == "HR")
                             return RedirectToAction("DashBoard", "HR");
                         else if (isCorrect.Designation == "Manager")
-                            return RedirectToAction("Login");
-                        else return RedirectToAction("Login");
+                            return RedirectToAction("login");
+                        
+                        else return RedirectToAction("login");
 
                     }
                     else

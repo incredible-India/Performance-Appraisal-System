@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using performance_appraisal_system.Migrations;
 using performance_appraisal_system.Models;
 
 namespace performance_appraisal_system.Data
@@ -13,11 +14,21 @@ namespace performance_appraisal_system.Data
 
         }
 
-
+        //employee information
         public DbSet<Employee> Employees { get; set; }
    
+        //for the appraisal form filled by hr
         public DbSet<competencies> competencies { get; set; }
 
+        //appraisal form created by manager
 
+        public DbSet<Appraiselform> AppraiselForm { get; set; }
+
+
+        //appraisal context form where competencies will store when manager will create first time appraisel
+
+        public DbSet<AspprasalAndCompetencies> AspprasalAndCompetencies { get; set; }
+
+        
     }
 }

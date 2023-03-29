@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using performance_appraisal_system.Data;
 
@@ -10,9 +11,10 @@ using performance_appraisal_system.Data;
 namespace performance_appraisal_system.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    partial class EmployeeContextModelSnapshot : ModelSnapshot
+    [Migration("20230329051144_AppraisalFROMDBSFKa")]
+    partial class AppraisalFROMDBSFKa
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace performance_appraisal_system.Migrations
 
                     b.HasKey("AID");
 
-                    b.ToTable("AppraiselForm");
+                    b.ToTable("Appraisel");
                 });
 
             modelBuilder.Entity("performance_appraisal_system.Models.AspprasalAndCompetencies", b =>
@@ -64,13 +66,15 @@ namespace performance_appraisal_system.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<int>("AppID")
+                    b.Property<int>("AppraisalformAID")
                         .HasColumnType("int");
 
                     b.Property<int>("Compitency")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("AppraisalformAID");
 
                     b.ToTable("AspprasalAndCompetencies");
                 });
@@ -135,6 +139,17 @@ namespace performance_appraisal_system.Migrations
                     b.HasKey("EID");
 
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("performance_appraisal_system.Models.AspprasalAndCompetencies", b =>
+                {
+                    b.HasOne("performance_appraisal_system.Models.Appraiselform", "AppraiselID")
+                        .WithMany()
+                        .HasForeignKey("AppraisalformAID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppraiselID");
                 });
 #pragma warning restore 612, 618
         }
