@@ -2,6 +2,7 @@
 using performance_appraisal_system.Models;
 using performance_appraisal_system.Data;
 using System.Threading.Tasks.Dataflow;
+using performance_appraisal_system.Migrations;
 
 namespace performance_appraisal_system.Repository
 {
@@ -10,7 +11,7 @@ namespace performance_appraisal_system.Repository
 
         private readonly EmployeeContext _app;
 
-
+       
 
         public AppraisalFormService(EmployeeContext app)
         {
@@ -64,15 +65,112 @@ namespace performance_appraisal_system.Repository
 
         //here we will check any new appraisal for employee
 
-        public dynamic CheckNewAppraisalForEmployee(int id)
+        public dynamic CheckNewAppraisalForEmployee(int id,string status)
         {
             //first check by id...
-           var appraisalForm = _app.AppraiselForm.Where(emp => emp.EmployeeID == id);
+           var appraisalForm = _app.AppraiselForm.Where(emp => emp.EmployeeID == id && emp.Status == status);
 
             if(appraisalForm.Any()) return appraisalForm;
             else {//if no appraisal form exist for the current employee
                 return null;
             }
+
+
+        }
+
+        //return current appraisal form based on the appraisal ID
+
+        public Appraiselform GetCurrentAppraisalForm(int ID)
+        {
+            var appraisalForm = _app.AppraiselForm.Where(emp => emp.AID== ID).FirstOrDefault();
+
+            if(appraisalForm == null)
+                return null;
+            else
+            return appraisalForm;
+        }
+
+        //return the current compitencies take appid  only compitency id
+
+        public List<AspprasalAndCompetencies> GetCompetencies(int ID)
+        {
+            return _app.AspprasalAndCompetencies.Where(m=>m.AppID==ID).ToList();
+        }
+        //return compitency Name take compitency id and length of total compitencies exists
+        public competencies GetCompitencyName(int id)
+        {
+            //compitencies id will store in the k
+            var k = _app.AspprasalAndCompetencies.Where(m => m.AppID == id).ToList();
+
+            //return comptencies object
+            var c = _app.competencies.Where(m=>m.ID == id).FirstOrDefault();
+
+            return c;
+
+
+        }
+        //return the appraisal form on the basis of given status and the id
+        public List<Appraiselform> GetAppraisalFormHavingStatus(string status,int empid)
+        {
+            return _app.AppraiselForm.Where(m=>m.ManagerID == empid && m.Status == status).ToList();
+        }
+
+
+        //this will change the status from new TO given status
+
+        public void ChnageAppraisalStatus(int aid,string status)
+        {
+            var k =_app.AppraiselForm.Where(m=>m.AID ==aid).FirstOrDefault();
+
+            k.Status = status;
+
+           _app.SaveChanges();
+
+
+
+        }
+
+
+        //save the first appraisal from submitted by Emplyee and change the status i.e SelfRated..
+
+        public void SaveFirstAppraisalFormDetails(AppraisalDetails ad,string status,int appid)
+        {
+            //list of the compitencies (ID)
+            var compitenciesList = GetCompetencies(appid);
+
+            //for each comment we will save in appraisal database
+            for (int i =0; i<ad.EComments.Length;i++)
+            {
+              
+                AppraisalDetails appraisal = new AppraisalDetails()
+                {
+                    EmployeeRating = ad.ERating[i],
+                    AppraisalID = appid,
+                    EmployeeComment = ad.EComments[i],
+                    ManagerComment = ad.ManagerComment,
+                    ManagerRating = ad.ManagerRating,
+                    Competency = compitenciesList[i].Compitency,
+
+
+                };
+
+                _app.appraisalDetails.Add(appraisal);
+                _app.SaveChanges();
+            }
+
+            //now changing the appraisal status
+
+            Appraiselform? af=  _app.AppraiselForm.Where(m=>m.AID == appid).FirstOrDefault();
+
+            af.Status = status;
+
+            _app.SaveChanges();
+
+
+
+
+            
+
 
 
         }

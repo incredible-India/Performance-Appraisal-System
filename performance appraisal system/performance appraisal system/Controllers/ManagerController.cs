@@ -36,6 +36,15 @@ namespace performance_appraisal_system.Controllers
 
         public IActionResult DashBoard()
         {
+            //first get the current user id
+
+            int userID = _emp.CurrentUserID(User.Claims.ToList()[1].Value);
+            //her we will show all the appraisal form having status new
+
+            List<Appraiselform> myform = _appraisalfromService.GetAppraisalFormHavingStatus("New", userID); 
+
+            ViewBag.NewStatus = myform;
+            
             return View();
         }
 
@@ -119,6 +128,21 @@ namespace performance_appraisal_system.Controllers
 
 
         }
+
+        //this action will change the appraisal form status to new 
+
+
+        public IActionResult ChangeAppraisalStatus(int appid,string status)
+        {
+            //changing the status to created for the given appraisal id
+
+            _appraisalfromService.ChnageAppraisalStatus(appid,"Created");
+
+            TempData["success"] = "*status Changed successfully..";
+            return RedirectToAction("DashBoard");
+        }
+
+
 
 
         //drop down for the employee list under the the current manager login

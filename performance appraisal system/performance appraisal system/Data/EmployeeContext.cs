@@ -29,6 +29,10 @@ namespace performance_appraisal_system.Data
 
         public DbSet<AspprasalAndCompetencies> AspprasalAndCompetencies { get; set; }
 
+        //contains the Appraisal detail like comment and rating
+
+        public DbSet<AppraisalDetails> appraisalDetails { get; set; }
+
         
     }
 }

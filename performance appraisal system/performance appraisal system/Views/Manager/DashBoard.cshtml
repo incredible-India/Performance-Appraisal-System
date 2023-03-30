@@ -16,8 +16,27 @@
         <div class="col-sm-6 border rounded-2">
             
             <h4 class="mt-3">Views</h4>
-            
-            <a class="btn btn-outline-secondary  mt-3">Create New Appraisel</a>
+
+            @if (TempData["success"] !=null)
+            {
+                <p class="text-success "><b>@TempData["success"]</b> </p>
+            }
+          
+            @{
+                if( ViewBag.NewStatus != null)
+                {
+                    @foreach (var i in ViewBag.NewStatus)
+                    {
+                        <p>You have created an Appraisal form for <b>Employee ID  @i.EmployeeID</b> Status is <b>@i.Status</b> on <b>@i.StartDate</b></p> <a class="text-info" asp-action="ChangeAppraisalStatus" asp-controller="Manager" asp-route-appid="@i.AID">Change Status As Created</a>
+
+                        <hr />
+                    }
+                }
+                else
+                {
+                    <p>You have not created any New appraisal form</p>
+                }
+            }
      
 
         </div>

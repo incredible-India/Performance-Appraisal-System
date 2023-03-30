@@ -24,9 +24,9 @@
             @{
                 if(ViewBag.status != null)
                 {
-                    foreach(var item in ViewBag.status)
+                    foreach (var item in ViewBag.status)
                     {
-                        <p> Hey, <b>@User.Identity.Name</b>, There is new appraisal form for you. <b>created on @item.StartDate.. </b> <a class="text-info">See Details</a>   </p>
+                        <p> Hey, <b>@User.Identity.Name</b>, There is new appraisal form for you. <b>created on @item.StartDate.. </b> <a class="text-info"  asp-action="FirstAppraisalDetail" asp-controller="Employee" asp-route-appID="@item.AID">See Details</a>   </p>
                     }
 
                 }
