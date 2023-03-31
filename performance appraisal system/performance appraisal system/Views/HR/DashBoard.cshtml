@@ -1,8 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@inject performance_appraisal_system.Services.IEmployeeService emp;
+@inject performance_appraisal_system.Services.IAppraisalfromService app;
+
 
 @if(User.Identity.IsAuthenticated)
 {
@@ -22,6 +20,64 @@
 
          <div class="col-sm-8">
 
+             <h3 class="text-center">Appraisal Details</h3>
+
+                @if (ViewBag.fm != null)
+                {
+                                 <input class="form-control" id="myInput2" type="text" placeholder="Search..">
+                    <table class="table table-striped" id="myTable2">
+        <thead>
+            <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Appraisal Start Date</th>
+              
+                <th scope="col">Manager ID</th>
+                <th scope="col">Manager Name </th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                                foreach (var item in ViewBag.fm)
+                                {
+                                    
+                                    <tr>
+
+                                        <td>@item.EmployeeID</td>
+                                        <td>@emp.GetEmployeeById(@item.EmployeeID).Name</td>
+                                        <td>@item.StartDate</td>
+                                        <td>@item.ManagerID</td>
+                                        <td>@emp.GetEmployeeById(@item.ManagerID).Name</td>
+                                        <td> <a asp-action="SeeDetailsAppraisal" asp-controller="HR" asp-route-aid="@item.AID">See Details</a>  </td>
+
+
+
+                                    </tr>
+
+
+                                }
+            }
+            </tbody>
+            </table>
+
+
+                }
+                else
+                {
+                    <p>No Appraisal Form There..</p>
+                }
+
+
+
+
+
+
+
+
+
+
                 @if (TempData["Edited"] != null)
                 {
                     <p class="text-success"><b>@TempData["Edited"]</b></p>
@@ -29,6 +85,9 @@
 
                 @if (ViewBag.EmployeeList != null)
                 {
+
+                    <h3 class="text-center">Employee Details</h3>
+
                     <input class="form-control" id="myInput" type="text" placeholder="Search..">
                     <table class="table table-striped" id="myTable">
         <thead>
@@ -70,6 +129,13 @@
             $("#myInput").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
                 $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            $("#myInput2").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable2 tr").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });

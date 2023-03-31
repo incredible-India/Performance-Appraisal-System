@@ -9,6 +9,7 @@ using System.Drawing.Text;
 using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using performance_appraisal_system.Validators;
+using performance_appraisal_system.Repository;
 
 namespace performance_appraisal_system.Controllers
 {
@@ -25,14 +26,19 @@ namespace performance_appraisal_system.Controllers
 
         private readonly ICompitencies _comp;
 
+        //Appraisal Related Services 
+
+        private readonly IAppraisalfromService _app;
+
         //login related services
         private readonly _LoginValidator _loginValidator;
 
-        public HRController(IEmployeeService employeeService,_LoginValidator loginValidator,ICompitencies comp)
+        public HRController(IEmployeeService employeeService,_LoginValidator loginValidator,ICompitencies comp,IAppraisalfromService app)
         {
             _emp = employeeService;
             _loginValidator = loginValidator;
             _comp = comp;
+            _app = app;
       
             
         }
@@ -47,6 +53,14 @@ namespace performance_appraisal_system.Controllers
                 //this will return the no of employees
                 ViewBag.EmployeeList = _emp.EmployeeList();
             }
+
+            //show the number of completed appraisals
+
+
+            List<Appraiselform> af = _app.AllApraisalHavingStatus("Completed");
+
+            ViewBag.fm = af;
+
            
             return View();
         }
@@ -205,6 +219,25 @@ namespace performance_appraisal_system.Controllers
 
 
             ViewBag.SelectList = selectList;
+        }
+
+
+        //see the details of the appraisal form
+
+        public IActionResult SeeDetailsAppraisal(int aid)
+        {
+
+           
+           
+
+            var forms = _app.GetCurrentAppraisalFormHR(aid,"Completed");
+
+            ViewBag.fm = forms;
+
+            var Comps = _app.GetAppraisalFormDetails(aid);
+
+            ViewBag.comps = Comps;
+            return View();
         }
     }
 }

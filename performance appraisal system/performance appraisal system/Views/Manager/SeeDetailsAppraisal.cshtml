@@ -1,0 +1,120 @@
+﻿<partial name="_navbarCommon" />
+@inject performance_appraisal_system.Services.IEmployeeService emp;
+@inject performance_appraisal_system.Services.IAppraisalfromService app;
+
+
+<div class="container shadow-lg mt-4 boeder border-1">
+
+
+    @{
+        if (ViewBag.fm != null)
+        {
+
+            <label class="mt-2 mx-2">Employee Name</label>
+
+
+
+            <h6 class="text-secondary mt-2 mx-2"> @emp.GetEmployeeById(ViewBag.fm.EmployeeID).Name </h6>
+            <hr />
+
+
+
+            <label class="mt-2 mx-2">Objective</label>
+
+
+
+            <h6 class="text-secondary mt-2 mx-2">@ViewBag.fm.objective</h6>
+            <hr />
+
+
+            <label class="mt-2 mx-2">Appraisal Start Date</label>
+
+
+
+            <h6 class="text-secondary mt-2 mx-2">@ViewBag.fm.StartDate</h6>
+            <hr />
+
+
+            <label class="mt-2 mx-2">Last Evaluation  Date</label>
+
+
+
+            <h6 class="text-secondary mt-2 mx-2 text-danger">@ViewBag.fm.EndDate</h6>
+            <hr />
+
+
+
+            if (ViewBag.comps != null)
+            {
+                foreach (var item in ViewBag.comps)
+                {
+
+                    <div class="row">
+
+
+                        <div class="col-sm-4">
+                            <label class="mt-2 mx-2">Compitency</label>
+
+
+
+                            <h6 class="text-secondary mt-2 mx-2 ">@app.GetCompitencyName(@item.Competency).CompetencyName </h6>
+                            <hr />
+
+
+                        </div>
+
+
+                        <div class="col-sm-4">
+                            <label class="mt-2 mx-2">Your Comment</label>
+
+
+
+                            <h6 class="text-secondary mt-2 mx-2 "> @item.EmployeeComment </h6>
+                            <hr />
+
+
+
+                            <label class="mt-2 mx-2">Manager Comment</label>
+
+
+
+                            <h6 class="text-secondary mt-2 mx-2 "> @item.ManagerComment </h6>
+                            <hr />
+
+
+                        </div>
+
+                        <div class="col-sm-4">
+                            <label class="mt-2 mx-2">Your Rating</label>
+
+
+
+                            <h6 class="text-secondary mt-2 mx-2 "> @item.EmployeeRating</h6>
+                            <hr />
+
+
+                            <label class="mt-2 mx-2">Manager Rating</label>
+
+
+
+                            <h6 class="text-secondary mt-2 mx-2 "> @item.ManagerRating</h6>
+                            <hr />
+
+                        </div>
+
+                    </div>
+
+
+
+                }
+            }
+
+
+        }
+        else
+        {
+            <p>No Approval form is there...</p>
+        }
+    }
+
+</div>

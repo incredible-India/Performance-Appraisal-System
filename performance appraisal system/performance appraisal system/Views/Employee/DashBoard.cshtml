@@ -1,6 +1,11 @@
 ﻿<partial name="_navbarCommon" />
 
-
+@{
+    @if (TempData["success"] !=null)
+    {
+        <div class="container alert alert-success">@TempData["success"]</div>
+    }
+}
 <div class="container mt-4" >
 
     <div class="row">
@@ -9,11 +14,44 @@
             <h5>Previous Appraisal</h5>
 
 
+            @{
+                if (ViewBag.ca !=null)
+                {
+
+
+                  foreach (var item in ViewBag.ca)
+                    {
+                        <p>  <b>@User.Identity.Name</b>, You have accepted your Appraisal form <b>Created on @item.StartDate</b>. Appraisal Id @item.AID <a class="text-info" asp-action="SeeAppraisalDetails" asp-controller="Employee" asp-route-appID="@item.AID">See Details</a>   </p>
+                    }
+
+
+
+                }
+                else
+                {
+                    <p>No Privious Appraisal Exist..</p>
+                }
+            }
+
+
         </div>
 
         <div class="col-sm-4 border border-bottom alert alert-warning ">
             <h5>Pending Appraisal</h5>
+            @if( ViewBag.final !=null)
+            {
+                foreach (var item in ViewBag.final)
+                {
 
+                    <p> Hey, <b>@User.Identity.Name</b>, Your <b>manager</b> Has submmited his response..<a class="text-info" asp-action="EmployeeApproval" asp-controller="Employee" asp-route-appID="@item.AID">See Details</a>   </p>
+
+                }
+
+            }
+            else
+            {
+                <p>No Appraisal Exist..</p>
+            }
 
         </div>
 

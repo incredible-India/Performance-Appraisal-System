@@ -167,13 +167,102 @@ namespace performance_appraisal_system.Repository
             _app.SaveChanges();
 
 
+        }
+
+        public List<AppraisalDetails> GetAppraisalFormDetails(int aid)
+        {
+            return _app.appraisalDetails.Where(m=>m.AppraisalID == aid).ToList();
+        }
+
+
+
+        //saving information from manager side and status will be rated...
+
+        public void SaveInformationFromManagerSide(int appid,AppraisalDetails ad,string status)
+        {
+            //get the appraisal form
+            var k = _app.AppraiselForm.Where(m=>m.AID==appid).FirstOrDefault();
+
+            if (k != null)
+            {
+
+         //   k.Status = status;
+         //get the related compitencies
+                var compi = _app.AspprasalAndCompetencies.Where(m=>m.AppID==appid).ToList();
+
+                int len = compi.Count;
+
+            for(int i=0;i<len;i++)
+                {
+
+                    var apd = _app.appraisalDetails.Where(m => m.AppraisalID == appid && m.Competency == compi[i].Compitency).FirstOrDefault();
+
+                    if(apd != null)
+                    {
+                        apd.ManagerComment = ad.MComments[i];
+                        apd.ManagerRating = ad.MRating[i];
+
+
+                        _app.SaveChanges();
+                    }
+
+                }
+        
+
+            k.Status =status;
+                
+                
+                _app.SaveChanges();
+                 
+
+                   
+
 
 
             
 
+            }
 
+            
 
         }
 
+        //give the appraisal form only for current login user or the user belongs to this form
+        public Appraiselform GetCurrentAppraisalFormForCurrentEmployee(int ID,int Empid,string status)
+        {
+            var appraisalForm = _app.AppraiselForm.Where(emp => emp.AID == ID && emp.EmployeeID == Empid && emp.Status==status).FirstOrDefault();
+
+            if (appraisalForm == null)
+                return null;
+            else
+                return appraisalForm;
+        }
+
+
+        public Appraiselform GetCurrentAppraisalFormForCurrentManager(int ID, int Mid, string status)
+        {
+            {
+                var appraisalForm = _app.AppraiselForm.Where(emp => emp.AID == ID && emp.ManagerID == Mid && emp.Status == status).FirstOrDefault();
+
+                if (appraisalForm == null)
+                    return null;
+                else
+                    return appraisalForm;
+            }
+        }
+
+        //return all appraisal form having given status
+
+        public List<Appraiselform> AllApraisalHavingStatus(string status)
+        {
+            return _app.AppraiselForm.ToList();
+        }
+
+
+        public Appraiselform GetCurrentAppraisalFormHR(int aid, string status)
+        {
+
+            return _app.AppraiselForm.Where(m=>m.AID == aid && m.Status == status).FirstOrDefault();
+        }
     }
 }

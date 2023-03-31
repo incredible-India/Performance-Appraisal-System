@@ -33,5 +33,28 @@ namespace performance_appraisal_system.Services
 
         //save the first appraisal form by user and staus will be selfrated
         public void SaveFirstAppraisalFormDetails(AppraisalDetails ad, string status, int appid);
+
+        public List<AppraisalDetails> GetAppraisalFormDetails(int aid);
+
+        //saving manager side info
+
+        public void SaveInformationFromManagerSide(int aid, AppraisalDetails ad, string status);
+
+        //give the appraisal form only for current login user or the user belongs to this form
+        public Appraiselform GetCurrentAppraisalFormForCurrentEmployee(int ID, int Empid,string status);
+
+
+        //give the appraisal form only for current login user or the user belongs to this form for the manager
+        public Appraiselform GetCurrentAppraisalFormForCurrentManager(int ID, int Mid, string status);
+
+
+        //return all appraisal form having given status
+
+        public List<Appraiselform> AllApraisalHavingStatus(string status);
+
+
+        //return appraisal for the hr ofr the single appraisal details 
+
+        public Appraiselform GetCurrentAppraisalFormHR(int aid,string status);
     }
 }

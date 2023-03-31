@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using performance_appraisal_system.Data;
 using performance_appraisal_system.Models;
+using performance_appraisal_system.Repository;
 using performance_appraisal_system.Services;
 
 namespace performance_appraisal_system.Controllers
@@ -35,9 +36,16 @@ namespace performance_appraisal_system.Controllers
 
             var MyAppraisalForm = _app.CheckNewAppraisalForEmployee(UserId,"Created");
 
-            
+            //CHECKING FOR THE RATED APPRAISAL FOR FINAL APPROVAL
 
-            if (MyAppraisalForm != null) ViewBag.status = MyAppraisalForm;
+            var FinalApp = _app.CheckNewAppraisalForEmployee(UserId, "Rated");
+
+
+            //cheking the complted Appraisal...
+
+            var completedAppraisal = _app.CheckNewAppraisalForEmployee(UserId, "Completed");
+
+            if (MyAppraisalForm != null) { ViewBag.status = MyAppraisalForm; ViewBag.final = FinalApp; ViewBag.ca = completedAppraisal; }
 
 
 
@@ -104,6 +112,63 @@ namespace performance_appraisal_system.Controllers
 
                 return RedirectToAction("FirstAppraisalDetail",new { appID = appID});
             }
+        }
+
+
+        //for the employee approval final
+
+        public IActionResult EmployeeApproval(int appID)
+        {
+            var MyAppraisalForm = _app.GetCurrentAppraisalForm(appID);
+
+
+            ViewBag.fm = MyAppraisalForm;
+
+            //for the compitencies and the comment
+            var Comps = _app.GetAppraisalFormDetails(appID);
+
+          
+
+            ViewBag.comps = Comps;
+
+            return View();
+
+        }
+
+
+        //when Employee Accept the Appraisal
+
+        public IActionResult AcceptAppraisal(int appID)
+        {
+            TempData["success"] = "*You Have Accepted You Appraisal..";
+            _app.ChnageAppraisalStatus(appID, "Completed");
+            return RedirectToAction("DashBoard");
+        }
+
+
+
+
+        //See Appraisal Details for  everyonecan Access...
+        public IActionResult SeeAppraisalDetails(int appID)
+        {
+            int UserId = _emp.CurrentUserID(User.Claims.ToList()[1].Value);
+
+          
+            //give the appraisal form only for current login user or the user belongs to this form
+
+            var MyAppraisalForm = _app.GetCurrentAppraisalFormForCurrentEmployee(appID, UserId, "Completed");    
+
+
+            ViewBag.fm = MyAppraisalForm;
+
+            //for the compitencies and the comment
+            var Comps = _app.GetAppraisalFormDetails(appID);
+
+
+
+            ViewBag.comps = Comps;
+
+            return View();
         }
     }
 }

@@ -20,8 +20,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRGFzaEJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Employee/EmployeeApproval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRW1wbG95ZWVBcHByb3ZhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Employee/FirstAppraisalDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcRmlyc3RBcHByYWlzYWxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Employee/SeeAppraisalDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcU2VlQXBwcmFpc2FsRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Error/AccessDenied.cshtml]
@@ -52,12 +60,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcRWRpdEVtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/HR/SeeDetailsAppraisal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSFJcU2VlRGV0YWlsc0FwcHJhaXNhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Manager/AddAppraisel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxBZGRBcHByYWlzZWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Manager/DashBoard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxEYXNoQm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Manager/ManagerResponseOnAppraisal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxNYW5hZ2VyUmVzcG9uc2VPbkFwcHJhaXNhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Manager/SeeDetailsAppraisal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlclxTZWVEZXRhaWxzQXBwcmFpc2FsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/himanshu.y.sharma/Desktop/performance appraisal system/performance appraisal system/performance appraisal system/Views/Shared/Error.cshtml]
