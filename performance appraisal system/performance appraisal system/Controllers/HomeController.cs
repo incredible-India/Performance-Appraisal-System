@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using performance_appraisal_system.Data;
 using performance_appraisal_system.Models;
 using performance_appraisal_system.Services;
 using System.Diagnostics;
@@ -18,12 +19,15 @@ namespace performance_appraisal_system.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         //for the email and password validators
         private readonly _LoginValidator _loginValidator;
+        //Dbcontext file
+        private readonly IEmployeeService _emp;
 
-        public HomeController(ILogger<HomeController> logger, _LoginValidator loginValidator, IHttpContextAccessor httpContextAccessor)
+        public HomeController(ILogger<HomeController> logger, _LoginValidator loginValidator, IHttpContextAccessor httpContextAccessor,IEmployeeService employeeContext)
         {
             _logger = logger;
             _loginValidator = loginValidator;
             _httpContextAccessor = httpContextAccessor;
+            _emp = employeeContext;
 
         }
 
@@ -131,7 +135,64 @@ namespace performance_appraisal_system.Controllers
         }
 
 
+        //changing the password of user
 
+        [Authorize]
+        //taking the user id ....
+        public IActionResult ChnageUserPassword(int id)
+        {
+            //verifying changin user is the current user or not
+            Employee CurentEmployee = _emp.GetEmployeeById(id);
+
+            if (CurentEmployee != null)
+            {
+                //if employee exist then verify with the current user 
+                string  email = User.Claims.ToList()[1].Value;
+
+                //varify the user 
+
+                if(email == CurentEmployee.email)
+                {
+                    //return the login change password form..
+                    changePassword cf = new changePassword(); 
+                    return View(cf);
+                }
+                else
+                {
+                    //if the user is in current user
+                    return RedirectToAction(actionName: "NormalError", controllerName: "Error", new
+                    {
+                        message = "You Have no right to perform this action"
+                    }) ;
+                }
+
+            }
+
+            return RedirectToAction(actionName: "NormalError", controllerName: "Error", new
+            {
+                message = "You Have no right to perform this action"
+            });
+
+        }
+
+
+        //handle the post request for changing the password 
+        [Authorize]
+        [HttpPost]
+
+        public IActionResult ChnageUserPassword(changePassword cp)
+        {
+
+            if (!ModelState.IsValid) return View(cp);
+            else
+            {
+                ModelState.Clear();
+                ViewBag.succ = "Password changed succefully..";
+                return View(cp);
+            }
+
+         
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
